@@ -1,35 +1,117 @@
-# Manager-io/Manager
+# نظام أساس لنقاط البيع (Asas POS System)
 
-Welcome to the `Manager-io/Manager` GitHub repository. This repository is dedicated to hosting binary downloads for the Manager software.
+مرحباً بكم في نظام أساس لنقاط البيع - حل متكامل وعصري لإدارة المتاجر والمؤسسات التجارية.
 
-![](https://img.shields.io/github/v/release/Manager-io/Manager)
+## 🚀 البدء السريع
 
-## Desktop Edition
+### متطلبات التشغيل
+- متصفح ويب حديث (Chrome, Firefox, Safari, Edge)
+- أو تطبيق Electron للاستخدام كتطبيق سطح مكتب
 
-| Operating System | x64                                      | arm64                                    | x86                                    |
-|------------------|------------------------------------------|------------------------------------------|------------------------------------------|
-| Windows          | [Download](https://github.com/Manager-io/Manager/releases/latest/download/Manager-win-x64.msix) | - | [Download](https://github.com/Manager-io/Manager/releases/latest/download/Manager-win-x86.msix)
-| Mac              | [Download](https://github.com/Manager-io/Manager/releases/latest/download/Manager-osx-x64.dmg) | [Download](https://github.com/Manager-io/Manager/releases/latest/download/Manager-osx-arm64.dmg) | - |
-| Linux            | [Download](https://github.com/Manager-io/Manager/releases/latest/download/Manager-linux-x64.AppImage) | - | - |
+### تشغيل التطبيق
 
-## Server Edition
+#### للاستخدام عبر المتصفح:
+1. افتح ملف `index.html` في متصفح الويب
+2. أو قم بتشغيل خادم محلي وانتقل إلى الصفحة الرئيسية
 
-| Operating System | x64                                                    | arm64                                           | x86                                              |
-|------------------|--------------------------------------------------------|-----------------------------------------------|----------------------------------------------------|
-| Windows          | [Download](https://github.com/Manager-io/Manager/releases/latest/download/ManagerServer-win-x64.zip) | - | [Download](https://github.com/Manager-io/Manager/releases/latest/download/ManagerServer-win-x86.zip) |
-| Mac              | [Download](https://github.com/Manager-io/Manager/releases/latest/download/ManagerServer-osx-x64.zip) | [Download](https://github.com/Manager-io/Manager/releases/latest/download/ManagerServer-osx-arm64.zip) | - |
-| Linux            | [Download](https://github.com/Manager-io/Manager/releases/latest/download/ManagerServer-linux-x64.tar.gz) | [Download](https://github.com/Manager-io/Manager/releases/latest/download/ManagerServer-linux-arm64.tar.gz)  | - |
+#### لإنشاء تطبيق سطح مكتب (Electron):
+```bash
+# تثبيت Node.js و npm أولاً
+npm init -y
+npm install electron --save-dev
 
-## Cloud Edition
+# إنشاء ملف main.js للـ Electron
+# ثم تشغيل التطبيق
+npm start
+```
 
-The Cloud Edition of Manager is identical to the Server Edition in terms of features and functionality. The key difference is that the Cloud Edition is professionally hosted by us, offering a seamless experience without the need for self-hosting. Users can sign up for a free trial at [www.manager.io/cloud-edition](https://www.manager.io/cloud-edition).
+## 🔑 بيانات التفعيل والدخول
 
-## Links
+### مفتاح التفعيل
+```
+ASAS-POS-2024-PREMIUM
+```
 
-- **Main Website**: [www.manager.io](https://www.manager.io)
-- **Guides**: [www.manager.io/guides](https://www.manager.io/guides)
-- **Community Forum**: [forum.manager.io](https://forum.manager.io)
+### بيانات تسجيل الدخول الافتراضية
+- **اسم المستخدم:** `admin`
+- **كلمة المرور:** `asas2024`
 
-## Support
+> ⚠️ **تنبيه أمني:** يُنصح بتغيير كلمة المرور الافتراضية بعد التفعيل الأول
 
-For questions, guides, and community discussions, please visit the links provided above. The community forum is especially useful for user queries and discussions.
+## 📱 شاشات النظام
+
+### 1. شاشة التفعيل
+- إدخال مفتاح التفعيل
+- تسجيل بيانات الشركة
+- اسم صاحب الترخيص
+
+### 2. شاشة تسجيل الدخول
+- اسم المستخدم وكلمة المرور
+- التحقق من صحة البيانات
+
+### 3. لوحة التحكم الرئيسية
+- **المبيعات:** إدارة عمليات البيع اليومية
+- **المخزون:** متابعة المنتجات والكميات
+- **العملاء:** إدارة بيانات العملاء
+- **التقارير:** تقارير المبيعات والأرباح
+- **الإعدادات:** تخصيص النظام
+- **النسخ الاحتياطي:** حفظ واستعادة البيانات
+
+## 🛠️ التطوير والتخصيص
+
+### بنية المشروع
+```
+Manager/
+├── index.html          # الواجهة الرئيسية للتطبيق
+├── README.md          # دليل الاستخدام
+└── SECURITY.md        # سياسات الأمان
+```
+
+### تخصيص النظام
+- جميع النصوص باللغة العربية
+- تصميم متجاوب يدعم الشاشات المختلفة
+- إمكانية التكامل مع قواعد البيانات
+- دعم الطباعة والتقارير
+
+### إضافة ميزات جديدة
+1. افتح ملف `index.html` في محرر النصوص
+2. ابحث عن دالة `showFeature()` لإضافة وظائف جديدة
+3. أضف بطاقات جديدة في قسم `dashboard-grid`
+4. قم بتطوير الواجهات حسب احتياجاتك
+
+## 💾 حفظ البيانات
+
+النظام يستخدم `localStorage` لحفظ:
+- بيانات التفعيل
+- معلومات الشركة
+- إعدادات المستخدم
+
+### نسخ احتياطي يدوي
+يمكنك نسخ البيانات المحفوظة من خلال:
+```javascript
+// في وحدة تحكم المتصفح
+console.log(localStorage.getItem('asasPOSData'));
+```
+
+## 🔐 الأمان
+
+- تشفير بيانات المستخدمين
+- حماية من الوصول غير المصرح
+- نسخ احتياطية منتظمة
+- مراقبة العمليات
+
+## 📞 الدعم الفني
+
+للحصول على المساعدة أو الإبلاغ عن مشاكل:
+- راجع ملف `SECURITY.md` للمسائل الأمنية
+- تواصل مع فريق التطوير لأي استفسارات تقنية
+
+## 📋 الإصدارات
+
+- **الإصدار الحالي:** 1.0
+- **تاريخ الإصدار:** 2024
+- **الحالة:** نسخة تجريبية للتطوير
+
+---
+
+© 2024 نظام أساس لنقاط البيع - جميع الحقوق محفوظة
